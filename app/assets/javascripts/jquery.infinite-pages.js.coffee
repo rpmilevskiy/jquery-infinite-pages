@@ -90,7 +90,9 @@ Released under the MIT License
       @options.state.loading = true
       @_log "Loading next page..."
       if typeof @options.loading is 'function'
-        @$container.find(@options.navSelector).each(@options.loading)
+        @$container.find(@options.navSelector).each (navSelector) ->
+          $(navSelector).show()
+          @options.loading()
 
     _success: ->
       @options.state.loading = false
