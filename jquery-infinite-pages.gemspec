@@ -15,4 +15,5 @@ Gem::Specification.new do |s|
   s.add_dependency "jquery-rails"
   s.add_dependency "coffee-script"
   s.add_dependency "railties", ">= 3.1"
+  s.add_development_dependency "rake", "~> 10.0"
 end
