@@ -23,6 +23,7 @@ Released under the MIT License
       success: null # optional callback when next-page request finishes
       error:   null # optional callback when next-page request fails
       context: window # context to define the scrolling container
+      body: 'div[role=body]'
       state:
         paused:  false
         loading: false
@@ -34,6 +35,7 @@ Released under the MIT License
       @options = $.extend({}, @defaults, options)
       @$container = $(container)
       @$table = $(container).find('table')
+      @$body = $(container).find(@options.body)
       @$context = $(@options.context)
       @init()
 
@@ -62,7 +64,7 @@ Released under the MIT License
         @_log "No more pages to load"
       else
         windowBottom = @$context.scrollTop() + @$context.height()
-        distance = nav.position().top - windowBottom
+        distance = @$body.height - windowBottom
 
         if @options.state.paused
           @_log "Paused"
