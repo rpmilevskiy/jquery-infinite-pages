@@ -64,7 +64,7 @@ Released under the MIT License
         @_log "No more pages to load"
       else
         windowBottom = @$context.scrollTop() + @$context.height()
-        distance = @$body.height - windowBottom
+        distance = @$body.height() - windowBottom
 
         if @options.state.paused
           @_log "Paused"
