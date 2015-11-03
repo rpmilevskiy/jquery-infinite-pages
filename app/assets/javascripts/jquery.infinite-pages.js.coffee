@@ -35,7 +35,7 @@ Released under the MIT License
       @options = $.extend({}, @defaults, options)
       @$container = $(container)
       @$table = $(container).find('table')
-      @$body = $(container).find(@options.body)
+      @$body = $(container).find(@options.body)[0]
       @$context = $(@options.context)
       @init()
 
@@ -65,7 +65,7 @@ Released under the MIT License
       else
         windowBottom = @$context.scrollTop() + @$context.height()
         if @$body 
-          distance = @$body.height() - windowBottom
+          distance = $(@$body).height() - windowBottom
         else
           distance = nav.position().top - windowBottom
 
